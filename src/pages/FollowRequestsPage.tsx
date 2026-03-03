@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { MdPersonAdd } from "react-icons/md";
 import { useFollowRequests } from "@/hooks/useFollowRequests";
 import { useFollow } from "@/hooks/useFollow";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import type { IUser } from "@/types/user.type";
 import { getAvatarByUserId } from "@/utils/avatar";
 import Card from "@/components/ui/Card";
@@ -46,6 +47,7 @@ const FollowerRow = ({ id, user }: { id: number; user: IUser }) => {
 };
 
 const FollowRequestsPage = () => {
+  useDocumentTitle("Followers");
   const { followers, isLoading } = useFollowRequests();
 
   return (

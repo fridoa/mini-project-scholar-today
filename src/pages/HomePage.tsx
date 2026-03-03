@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { usePosts } from "@/hooks/usePosts";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import PostCard from "@/components/posts/PostCard";
 import { PostCardSkeleton } from "@/components/ui/Skeleton";
 import CreatePostBox from "@/components/posts/CreatePostBox";
@@ -7,6 +8,7 @@ import InfiniteScrollTrigger from "@/components/posts/InfiniteScrollTrigger";
 import RightSidebar from "@/components/home/RightSidebar";
 
 const HomePage = () => {
+  useDocumentTitle("Home");
   const { posts, usersMap, isLoading, isError, hasNextPage } = usePosts();
 
   if (isError) {

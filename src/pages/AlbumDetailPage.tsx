@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { MdArrowBack } from "react-icons/md";
 import { useAlbumDetail } from "@/hooks/useAlbumDetail";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import Spinner from "@/components/ui/Spinner";
 import ImageLightbox from "@/components/ui/ImageLightbox";
 import { getPhotoUrl } from "@/utils/image";
@@ -15,6 +16,7 @@ const AlbumDetailPage = () => {
     Number(userId),
     Number(albumId),
   );
+  useDocumentTitle(album?.title ?? "Album");
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
   const [selectedPhoto, setSelectedPhoto] = useState<IPhoto | null>(null);
 

@@ -4,12 +4,14 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useLogin } from "@/hooks/useLogin";
 import { usePasswordVisible } from "@/hooks/usePasswordVisible";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import AuthLayout from "@/components/layouts/AuthLayout/AuthLayout";
 import TextInput from "@/components/ui/TextInput";
 import Button from "@/components/ui/Button";
 import Label from "@/components/ui/Label";
 
 const LoginPage = () => {
+  useDocumentTitle("Login");
   const { control, handleSubmit, handleLogin, errors, isPendingLogin } =
     useLogin();
   const { visiblePassword, handleVisiblePassword } = usePasswordVisible();

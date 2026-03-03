@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTodos, type TodoFilter } from "@/hooks/useTodos";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import TodoItem from "@/components/todos/TodoItem";
 import TodoFilterTabs from "@/components/todos/TodoFilterTabs";
 import TodoProgressCard from "@/components/todos/TodoProgressCard";
@@ -7,6 +8,7 @@ import Card from "@/components/ui/Card";
 import Spinner from "@/components/ui/Spinner";
 
 const TodosPage = () => {
+  useDocumentTitle("Tasks");
   const [filter, setFilter] = useState<TodoFilter>("all");
   const {
     todos,
