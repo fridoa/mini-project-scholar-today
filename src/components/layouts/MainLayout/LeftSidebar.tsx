@@ -1,7 +1,6 @@
 import { useNavigate, useLocation } from "react-router";
 import {
   MdDynamicFeed,
-  MdExplore,
   MdBookmark,
   MdChecklist,
   MdPersonAdd,
@@ -33,12 +32,6 @@ const LeftSidebar = () => {
       name: "My Tasks",
       href: "/todos",
       icon: MdChecklist,
-      badge: undefined as number | undefined,
-    },
-    {
-      name: "Explore",
-      href: "#",
-      icon: MdExplore,
       badge: undefined as number | undefined,
     },
     {
