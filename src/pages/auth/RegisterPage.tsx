@@ -4,12 +4,14 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useRegister } from "@/hooks/useRegister";
 import { usePasswordVisible } from "@/hooks/usePasswordVisible";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import AuthLayout from "@/components/layouts/AuthLayout/AuthLayout";
 import TextInput from "@/components/ui/TextInput";
 import Button from "@/components/ui/Button";
 import Label from "@/components/ui/Label";
 
 const RegisterPage = () => {
+  useDocumentTitle("Register");
   const { control, handleSubmit, handleRegister, errors, isPendingRegister } =
     useRegister();
   const { visiblePassword, handleVisiblePassword } = usePasswordVisible();

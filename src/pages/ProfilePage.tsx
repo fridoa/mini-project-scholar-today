@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useProfile } from "@/hooks/useProfile";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import Spinner from "@/components/ui/Spinner";
 import ProfileHeader from "@/components/profile/ProfileHeader";
 import ProfileTabs from "@/components/profile/ProfileTabs";
@@ -16,6 +17,7 @@ const ProfilePage = () => {
   const { user } = useAuthStore();
   const { profile, isLoading, isError } = useProfile(id);
   const [activeTab, setActiveTab] = useState<"posts" | "albums">("posts");
+  useDocumentTitle(profile?.name ?? "Profile");
 
   const isOwnProfile = user?.id === id;
 

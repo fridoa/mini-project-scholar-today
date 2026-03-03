@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router";
 import { MdHome } from "react-icons/md";
 import illustration404 from "@/assets/illustrations/404.png";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import Footer from "@/components/layouts/MainLayout/Footer";
 import Button from "@/components/ui/Button";
 
 const NotFoundPage = () => {
+  useDocumentTitle("Page Not Found");
   const navigate = useNavigate();
 
   return (

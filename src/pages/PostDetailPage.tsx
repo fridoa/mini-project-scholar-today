@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import { MdArrowBack } from "react-icons/md";
 import { usePostDetail } from "@/hooks/usePostDetail";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import Spinner from "@/components/ui/Spinner";
 import PostCard from "@/components/posts/PostCard";
 import LikeButton from "@/components/posts/LikeButton";
@@ -8,6 +9,7 @@ import BookmarkButton from "@/components/posts/BookmarkButton";
 import CommentList from "@/components/comments/CommentList";
 
 const PostDetailPage = () => {
+  useDocumentTitle("Post Detail");
   const { id } = useParams();
   const navigate = useNavigate();
   const postId = id!;

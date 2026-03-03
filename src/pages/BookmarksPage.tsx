@@ -1,10 +1,12 @@
 import { MdBookmarkBorder } from "react-icons/md";
 import { useBookmarkedPosts } from "@/hooks/useBookmarkedPosts";
+import useDocumentTitle from "@/hooks/useDocumentTitle";
 import PostCard from "@/components/posts/PostCard";
 import { PostCardSkeleton } from "@/components/ui/Skeleton";
 import Card from "@/components/ui/Card";
 
 const BookmarksPage = () => {
+  useDocumentTitle("Bookmarks");
   const { posts, usersMap, isLoading, isError } = useBookmarkedPosts();
 
   if (isError) {
