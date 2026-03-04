@@ -44,31 +44,6 @@
 | **Notifikasi Toast** | React Toastify |
 | **Kualitas Kode** | ESLint + Prettier |
 
-## 📁 Struktur Proyek
-
-```
-src/
-├── assets/          # Aset statis (gambar, ilustrasi)
-├── components/      # Komponen UI yang dapat digunakan ulang
-│   ├── comments/    # Komponen komentar
-│   ├── guards/      # Route guard (ProtectedRoute, GuestRoute)
-│   ├── home/        # Komponen khusus halaman beranda
-│   ├── layouts/     # Komponen layout (MainLayout, AuthLayout)
-│   ├── notifications/
-│   ├── posts/       # Komponen post (PostCard, CreatePostBox, Like, Bookmark)
-│   ├── profile/     # Komponen profil (header, tabs, intro)
-│   ├── todos/       # Komponen todo (item, filter tabs, progress card)
-│   └── ui/          # Komponen UI generik (Button, Card, Spinner, dll.)
-├── config/          # Konfigurasi environment
-├── hooks/           # Custom React hooks
-├── lib/             # Library utilitas
-├── pages/           # Komponen halaman
-│   └── auth/        # Halaman Login & Register
-├── services/        # Modul layanan API
-├── stores/          # Zustand state stores
-├── types/           # Definisi tipe TypeScript
-└── utils/           # Fungsi utilitas
-```
 
 ## 🚀 Cara Menjalankan Aplikasi
 
@@ -124,10 +99,28 @@ src/
 - **Deployment:** Frontend di-deploy menggunakan Vercel, backend di-deploy secara terpisah
 - **Data Source:** Data pengguna diambil dari JSONPlaceholder sebagai sumber data awal
 
+## 🔐 Akun untuk Testing
+
+Semua akun menggunakan password: `12341234`
+
+| User ID | Email | Password | Registered |
+|---------|-------|----------|------------|
+| 1 | Sincere@april.biz | 12341234 | ✅ |
+| 2 | Shanna@melissa.tv | 12341234 | ✅ |
+| 3 | Nathan@yesenia.net | 12341234 | ✅ |
+| 4 | Julianne.OConner@kory.org | 12341234 | ✅ |
+| 5 | Lucio_Hettinger@annie.ca | 12341234 | ✅ |
+| 6 | Karley_Dach@jasper.info | 12341234 | ✅ |
+| 7 | Telly.Hoeger@billy.biz | 12341234 | ✅ |
+| 8 | Sherwood@rosamond.me | — | ❌ |
+| 9 | Chaim_McDermott@dana.io | — | ❌ |
+| 10 | Rey.Padberg@karina.biz | — | ❌ |
+
+> User 8–10 belum terdaftar, silakan register terlebih dahulu melalui halaman Register.
+
 ## 📄 Lisensi
 
 Proyek ini dikembangkan untuk keperluan akademik.
 
 ---
 
-Dibuat dengan ❤️ oleh **Frida Afriyanto**
