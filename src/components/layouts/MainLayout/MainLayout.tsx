@@ -14,9 +14,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   const hideSidebar = location.pathname.startsWith("/users/");
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f0f2f5]">
+    <div className="flex min-h-screen flex-col bg-[#f0f2f5] pb-16 md:pb-0">
       <Navbar />
-      <main className="w-full flex-1 pb-18 md:pb-0">
+      <main className="w-full flex-1">
         {hideSidebar ? (
           children
         ) : (
