@@ -21,8 +21,10 @@ const MainLayout = ({ children }: MainLayoutProps) => {
           children
         ) : (
           <div className="flex w-full justify-center gap-6 pt-4">
-            <div className="ml-4 hidden w-full max-w-80 shrink-0 md:block">
-              <LeftSidebar />
+            <div className="ml-4 hidden w-full max-w-80 shrink-0 self-start md:block">
+              <div className="fixed top-25 w-[320px] max-w-80 h-[calc(100vh-100px)] overflow-y-auto pr-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <LeftSidebar />
+              </div>
             </div>
             <div className="max-w-300 min-w-0 flex-1">{children}</div>
           </div>

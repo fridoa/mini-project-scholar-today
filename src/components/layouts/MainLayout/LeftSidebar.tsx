@@ -51,7 +51,7 @@ const LeftSidebar = () => {
   if (!user) return null;
 
   return (
-    <div className="sticky top-25 flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <Card
         className="group relative cursor-pointer overflow-hidden p-0 pb-4 transition-all hover:-translate-y-1 hover:shadow-lg"
         onClick={() => navigate(`/users/${user.id}`)}
