@@ -2,7 +2,7 @@
 
 **Scholar Today** adalah aplikasi web media sosial berbasis komunitas akademik yang memungkinkan pengguna untuk berbagi postingan, mengelola tugas harian, menjelajahi album foto, serta terhubung dengan pengguna lainnya.
 
-> 🌐 **Live Demo:** [https://scholar-today.vercel.app](https://scholar-today.vercel.app)
+> 🌐 **Live Demo:** [https://www.scholartoday.web.id](https://www.scholartoday.web.id)
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
