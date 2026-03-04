@@ -1,19 +1,11 @@
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "@/validations/auth.schema";
 import type { ILogin } from "@/types/auth.type";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 import useAuthStore from "@/stores/useAuthStore";
 import { toast } from "react-toastify";
-
-const loginSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email("Format email tidak valid")
-    .required("Email wajib diisi"),
-  password: yup.string().required("Password wajib diisi"),
-});
 
 export const useLogin = () => {
   const navigate = useNavigate();
