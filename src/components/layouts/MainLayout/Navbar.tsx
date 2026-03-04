@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { MdLogout, MdPerson } from "react-icons/md";
+import { MdLogout, MdPerson, MdSearch, MdArrowBack } from "react-icons/md";
 import useAuthStore from "@/stores/useAuthStore";
 import Logo from "@/components/ui/Logo";
 import SearchInput from "@/components/ui/SearchInput";
@@ -12,7 +12,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMobileSearchOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -34,25 +39,51 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-sm">
-      <div className="flex w-full items-center justify-between px-4 py-4 lg:px-6 xl:px-8">
-        <button
-          onClick={() => {
-            if (location.pathname !== "/") navigate("/");
-          }}
-          className="cursor-pointer"
-        >
-          <Logo size="sm" />
-        </button>
-
-        <div className="flex items-center gap-3">
-          <div className="hidden w-64 sm:block">
-            <SearchInput placeholder="Search users..." />
-          </div>
-
-          <NotificationBell />
-
-          <div className="relative flex items-center" ref={dropdownRef}>
+      <div className="flex min-h-[72px] w-full items-center px-4 py-3 lg:px-6 xl:px-8">
+        {/* Mobile Expanded Search */}
+        {isMobileSearchOpen && (
+          <div className="flex w-full items-center gap-2 animate-in fade-in slide-in-from-right-2 duration-200 sm:hidden">
             <button
+              onClick={() => setIsMobileSearchOpen(false)}
+              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100"
+            >
+              <MdArrowBack size={24} />
+            </button>
+            <div className="flex-1">
+              <SearchInput placeholder="Search users..." autoFocus hideSearchIcon={true} onBack={() => setIsMobileSearchOpen(false)} />
+            </div>
+          </div>
+        )}
+
+        {/* Normal Navbar Elements */}
+        <div className={`flex w-full items-center justify-between ${isMobileSearchOpen ? 'hidden sm:flex' : 'flex'}`}>
+          <button
+            onClick={() => {
+              if (location.pathname !== "/") navigate("/");
+            }}
+            className="cursor-pointer transition-transform hover:scale-105 active:scale-95"
+          >
+            <Logo size="sm" />
+          </button>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Desktop Search */}
+            <div className="hidden w-64 sm:block">
+              <SearchInput placeholder="Search users..." />
+            </div>
+
+            {/* Mobile Search Toggle */}
+            <button
+              onClick={() => setIsMobileSearchOpen(true)}
+              className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 sm:hidden"
+            >
+              <MdSearch size={24} />
+            </button>
+
+            <NotificationBell />
+
+            <div className="relative flex items-center" ref={dropdownRef}>
+              <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="h-9 w-9 cursor-pointer overflow-hidden rounded-full transition-transform hover:scale-105"
             >
@@ -99,7 +130,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
   );
 };
 

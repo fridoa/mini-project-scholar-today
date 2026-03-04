@@ -8,11 +8,17 @@ import { getAvatarByUserId } from "@/utils/avatar";
 interface SearchInputProps {
   placeholder?: string;
   delay?: number;
+  autoFocus?: boolean;
+  hideSearchIcon?: boolean;
+  onBack?: () => void;
 }
 
 function SearchInput({
   placeholder = "Search...",
   delay = 500,
+  autoFocus = false,
+  hideSearchIcon = false,
+  onBack,
 }: SearchInputProps) {
   const [panelOpen, setPanelOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -25,10 +31,21 @@ function SearchInput({
   const { results, isLoading, hasQuery } = useSearchUsers(query);
 
   const handleClose = () => {
-    setPanelOpen(false);
-    setInputValue("");
-    setQuery("");
+    if (onBack) {
+      onBack();
+    } else {
+      setPanelOpen(false);
+    }
   };
+
+  useEffect(() => {
+    if (autoFocus) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+        setPanelOpen(true);
+      }, 100);
+    }
+  }, [autoFocus]);
 
   useEffect(() => {
     if (panelOpen) {
@@ -64,15 +81,17 @@ function SearchInput({
   return (
     <div className="relative" ref={panelRef}>
       <div className="flex w-full items-center gap-2 rounded-full bg-[#fde8e0] px-4 py-3">
-        {panelOpen ? (
-          <button
-            onClick={handleClose}
-            className="cursor-pointer rounded-full p-0.5 transition-colors hover:bg-[#f5cfc2]"
-          >
-            <MdArrowBack className="text-[#e8837c]" size={20} />
-          </button>
-        ) : (
-          <MdSearch className="text-[#e8837c]" size={20} />
+        {!hideSearchIcon && (
+          panelOpen ? (
+            <button
+              onClick={handleClose}
+              className="cursor-pointer rounded-full p-0.5 transition-colors hover:bg-[#f5cfc2]"
+            >
+              <MdArrowBack className="text-[#e8837c]" size={20} />
+            </button>
+          ) : (
+            <MdSearch className="text-[#e8837c]" size={20} />
+          )
         )}
         <input
           ref={inputRef}
