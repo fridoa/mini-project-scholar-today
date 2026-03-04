@@ -2,6 +2,7 @@ import { useLocation } from "react-router";
 import Navbar from "@/components/layouts/MainLayout/Navbar";
 import Footer from "@/components/layouts/MainLayout/Footer";
 import LeftSidebar from "@/components/layouts/MainLayout/LeftSidebar";
+import MobileBottomNav from "@/components/layouts/MainLayout/MobileBottomNav";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -15,7 +16,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="flex min-h-screen flex-col bg-[#f0f2f5]">
       <Navbar />
-      <main className="w-full flex-1">
+      <main className="w-full flex-1 pb-18 md:pb-0">
         {hideSidebar ? (
           children
         ) : (
@@ -30,6 +31,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         )}
       </main>
       <Footer />
+      {!hideSidebar && <MobileBottomNav />}
     </div>
   );
 };

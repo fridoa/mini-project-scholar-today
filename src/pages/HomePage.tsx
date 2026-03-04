@@ -22,7 +22,7 @@ const HomePage = () => {
   return (
     <div className="flex gap-4">
       {/* Main Content */}
-      <div className="flex w-full max-w-300 flex-col gap-4">
+      <div className="flex w-full max-w-300 flex-col gap-4 px-3 md:px-0 md:pr-4 xl:pr-0">
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const HomePage = () => {
       </div>
 
       {/* Right Content */}
-      <div className="mr-4 hidden w-full max-w-100 shrink-0 lg:block">
+      <div className="mr-4 hidden w-full max-w-100 shrink-0 xl:block">
         <div className="sticky top-25">
           <RightSidebar />
         </div>

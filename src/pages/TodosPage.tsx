@@ -30,7 +30,7 @@ const TodosPage = () => {
 
   return (
     <div className="flex gap-6">
-      <div className="flex w-full max-w-170 flex-col gap-5">
+      <div className="flex w-full max-w-170 flex-col gap-5 px-3 md:px-4 lg:px-0">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">My Tasks</h1>
           <p className="mt-1 text-sm text-gray-500">

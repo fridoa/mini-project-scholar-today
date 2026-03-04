@@ -48,9 +48,9 @@ const ProfilePage = () => {
       />
 
       <div className="mx-auto mt-4 max-w-300 px-4 sm:px-8">
-        <div className="grid grid-cols-1 items-start gap-6 pb-12 lg:grid-cols-[380px_1fr]">
+        <div className="grid grid-cols-1 items-start gap-6 pb-20 md:pb-12 lg:grid-cols-[340px_1fr]">
           {/* Left Content */}
-          <div className="sticky top-30 flex flex-col gap-6">
+          <div className="flex flex-col gap-6 lg:sticky lg:top-30">
             <ProfileIntro profile={profile} isOwnProfile={isOwnProfile} />
           </div>
 

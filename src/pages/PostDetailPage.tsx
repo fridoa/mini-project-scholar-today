@@ -38,7 +38,7 @@ const PostDetailPage = () => {
   }
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-2xl px-3 md:px-4 lg:px-0">
       <button
         onClick={() => navigate(-1)}
         className="mb-6 flex cursor-pointer items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-gray-700"

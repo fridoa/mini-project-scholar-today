@@ -47,7 +47,7 @@ const AlbumDetailPage = () => {
   }
 
   return (
-    <div className="mx-auto max-w-5xl py-8">
+    <div className="mx-auto max-w-5xl px-3 py-8 sm:px-6 lg:px-0">
       <div className="mb-8 flex items-center gap-4 border-b border-gray-100 pb-6">
         <button
           onClick={() => navigate(`/users/${userId}`)}
