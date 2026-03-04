@@ -22,9 +22,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         ) : (
           <div className="flex w-full justify-center gap-6 pt-4">
             <div className="ml-4 hidden w-full max-w-80 shrink-0 md:block">
-              <div className="sticky top-25">
-                <LeftSidebar />
-              </div>
+              <LeftSidebar />
             </div>
             <div className="max-w-300 min-w-0 flex-1">{children}</div>
           </div>
