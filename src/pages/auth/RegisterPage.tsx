@@ -27,6 +27,7 @@ const RegisterPage = () => {
 
       <form
         onSubmit={handleSubmit(handleRegister)}
+        noValidate
         className="mt-6 flex flex-col gap-5"
       >
         {errors.root && (

@@ -31,6 +31,7 @@ const LoginPage = () => {
 
       <form
         onSubmit={handleSubmit(handleLogin)}
+        noValidate
         className="mt-6 flex flex-col gap-5"
       >
         {errors.root && (
